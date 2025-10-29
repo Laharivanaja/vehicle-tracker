@@ -3,7 +3,7 @@
 A real-time vehicle movement simulation application built with React, React-Leaflet, and Tailwind CSS for frontend developer internship assignment.
 
 ## 🌐 Live Demo
-[Your Deployed URL Here - Add after deployment]
+[vehicle-tracker-ee45j6443-laharivanajas-projects.vercel.app]
 
 ## ✨ Features
 
@@ -52,7 +52,7 @@ A real-time vehicle movement simulation application built with React, React-Leaf
 ### Steps
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/vehicle-tracker.git
+git clone https://github.com/Laharivanaja/vehicle-tracker.git
 cd vehicle-tracker
 
 # Install dependencies
@@ -121,7 +121,6 @@ The application uses `dummy-route.json` with the following structure:
 ✅ Route path visualization (polyline)  
 ✅ Dummy location data from JSON file  
 ✅ Simulated real-time movement  
-✅ Smooth animations  
 ✅ Play/Pause/Reset controls  
 ✅ Metadata display (coordinates, time, speed)  
 ✅ Responsive UI design  
@@ -131,7 +130,7 @@ The application uses `dummy-route.json` with the following structure:
 
 **[Yarlagadda Lahari Prasanna]**  
 Email: [lahariprasannayarlagadda@gmail.com]  
-GitHub: [@yourusername](https://github.com/Laharivanaja)  
+GitHub: [@Laharivanaja](https://github.com/Laharivanaja)  
 
 
 ## 📝 License

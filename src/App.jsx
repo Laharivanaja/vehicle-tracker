@@ -5,10 +5,6 @@ import 'leaflet/dist/leaflet.css';
 
 // ==================== UTILITY FUNCTIONS ====================
 
-/**
- * Calculates distance between two GPS coordinates using Haversine formula
- * @returns Distance in kilometers
- */
 function calculateDistanceKm(lat1, lon1, lat2, lon2) {
   const R = 6371; // Earth's radius in kilometers
   const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -63,10 +59,10 @@ function formatElapsedTime(startTime, currentTime) {
   return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
 }
 
-// ==================== ANIMATED MARKER COMPONENT ====================
+
 
 /**
- * Custom marker component with smooth animation between positions
+ * Custom marker component between positions
  */
 function AnimatedMarker({ position, icon, duration = 2000 }) {
   const markerRef = useRef(null);
@@ -79,7 +75,7 @@ function AnimatedMarker({ position, icon, duration = 2000 }) {
       const startLatLng = prevPositionRef.current;
       const endLatLng = position;
 
-      // Skip animation if position hasn't changed
+     
       if (!startLatLng || (startLatLng[0] === endLatLng[0] && startLatLng[1] === endLatLng[1])) {
         prevPositionRef.current = position;
         return;
@@ -115,7 +111,7 @@ function AnimatedMarker({ position, icon, duration = 2000 }) {
   return <Marker ref={markerRef} position={position} icon={icon} />;
 }
 
-// ==================== MAIN COMPONENT ====================
+//MAIN COMPONENT 
 
 export default function App() {
   const [routeData, setRouteData] = useState([]);
@@ -128,7 +124,7 @@ export default function App() {
   // Initial map center (Hyderabad)
   const INITIAL_CENTER = [17.385044, 78.486671];
 
-  // ==================== CURRENT TIME UPDATER ====================
+  //CURRENT TIME UPDATER
   
   useEffect(() => {
     // Update current time every second
@@ -139,7 +135,7 @@ export default function App() {
     return () => clearInterval(timeInterval);
   }, []);
 
-  // ==================== DATA LOADING ====================
+  //DATA LOADING
   
   useEffect(() => {
     // Fetch route data from public folder
@@ -165,7 +161,7 @@ export default function App() {
     loadRouteData();
   }, []);
 
-  // ==================== SIMULATION LOGIC ====================
+  //SIMULATION LOGIC
   
   useEffect(() => {
     if (isPlaying && routeData.length > 0 && currentIndex < routeData.length - 1) {
@@ -189,7 +185,7 @@ export default function App() {
     };
   }, [isPlaying, currentIndex, routeData]);
 
-  // ==================== CONTROL HANDLERS ====================
+  //CONTROL HANDLERS
   
   const togglePlay = () => {
     if (currentIndex >= routeData.length - 1) {
@@ -206,7 +202,7 @@ export default function App() {
     setCurrentIndex(0);
   };
 
-  // ==================== RENDER DATA PREPARATION ====================
+  //RENDER DATA PREPARATION
   
   const currentPosition = routeData[currentIndex] || routeData[0] || { 
     lat: INITIAL_CENTER[0], 
@@ -230,7 +226,7 @@ export default function App() {
     iconAnchor: [16, 16]
   });
 
-  // ==================== LOADING STATE ====================
+  //LOADING STATE
   
   if (isLoading) {
     return (
@@ -243,7 +239,7 @@ export default function App() {
     );
   }
 
-  // ==================== MAIN RENDER ====================
+  //MAIN RENDER
   
   return (
     <div className="h-screen w-full relative bg-gray-100">
@@ -285,7 +281,7 @@ export default function App() {
           />
         )}
         
-        {/* Animated vehicle marker */}
+        
         <AnimatedMarker
           position={[currentPosition.lat, currentPosition.lng]}
           icon={vehicleIcon}
